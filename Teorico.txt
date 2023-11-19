@@ -1,0 +1,24 @@
+Problema a Resolver:
+El problema abordado en el código original es la detección de mascarillas faciales en imágenes. La tarea de clasificación binaria consiste en predecir si una persona en una imagen está usando o no una mascarilla facial. Este tipo de aplicación tiene relevancia en situaciones donde se desea verificar el cumplimiento de protocolos de seguridad relacionados con el uso de mascarillas, como en el contexto de la pandemia de COVID-19.
+
+Solución Propuesta:
+La solución propuesta es un modelo de red neuronal convolucional (CNN) implementado utilizando la biblioteca Keras con el backend de TensorFlow. El modelo consta de capas de convolución seguidas de capas de agrupación máxima (max-pooling) para aprender características relevantes de las imágenes. Luego, hay una capa completamente conectada con una función de activación ReLU y una capa de dropout para prevenir el sobreajuste. La capa de salida tiene una sola neurona con una función de activación sigmoide, indicando la probabilidad de que la persona en la imagen esté usando una mascarilla.
+
+Se utilizan generadores de imágenes para el entrenamiento, prueba y validación, con técnicas de aumento de datos en el conjunto de entrenamiento para mejorar la generalización del modelo.
+
+Conceptos Teóricos:
+
+Redes Neuronales Convolucionales (CNN):
+Las capas de convolución se utilizan para extraer características importantes de las imágenes.
+Las capas de agrupación máxima (max-pooling) reducen la dimensionalidad y preservan las características más importantes.
+
+Capas Completamente Conectadas:
+Las capas densas (completamente conectadas) se utilizan para realizar la clasificación final.
+
+La función de activación ReLU se aplica en las capas ocultas para introducir no linealidades.
+
+Dropout:
+La capa de dropout se utiliza durante el entrenamiento para reducir el sobreajuste.
+
+Función de Activación Sigmoid:
+Se utiliza en la capa de salida para realizar la clasificación binaria.
