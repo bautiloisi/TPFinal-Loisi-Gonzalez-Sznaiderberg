@@ -2,5 +2,3 @@ streamlit
 tensorflow
 requests
 PIL
-
-/{deploy}/__init__.py
