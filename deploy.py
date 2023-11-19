@@ -14,7 +14,7 @@ def load_mask_detection_model():
     return model
 
 # Function to preprocess the image
-@st.cache_data
+@st.cache_resource
 def load_image(image_path):
     response = requests.get(image_path, stream=True)
     if response.status_code == 200:
@@ -48,8 +48,10 @@ def main():
                 if img is not None and img_array is not None:
                     st.image(img, use_column_width=True, caption="Input Image")  # Display the input image
                     pred = mask_detection_model.predict(img_array)
-                    st.write(pred[0][0])
-                    pred_class = "tiene Barbijo" if pred[0][0] > 0.01 else "no tiene Barbijo"
+                    st.write("Probability of having a mask:", pred[0][0])
+                    
+                    threshold = 0.5 
+                    pred_class = "tiene Barbijo" if pred[0][0] < threshold else "no tiene Barbijo"
                     st.write("La persona de la foto", pred_class)
                 else:
                     st.write("Invalid Image URL")
